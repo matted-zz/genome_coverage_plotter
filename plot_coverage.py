@@ -15,6 +15,7 @@ def parse(sam):
     for chromo, length in zip(sam.references, sam.lengths):
         depths = numpy.zeros(length + 1)
         for base in sam.pileup(chromo, stepper="all"):
+            print dir(base)
             depths[base.reference_pos] += base.nsegments
             
         df = pandas.DataFrame(depths, index=numpy.arange(length + 1), columns=["depth"])
