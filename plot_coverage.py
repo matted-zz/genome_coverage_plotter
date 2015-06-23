@@ -15,12 +15,10 @@ def parse(sam):
     for chromo, length in zip(sam.references, sam.lengths):
         depths = numpy.zeros(length + 1)
         for base in sam.pileup(chromo, stepper="all"):
-            try: # nasty hack because the API changed (?)
-                base.reference_pos = base.pos
+            try: # ugly hack because the API changed (?)
+                depths[base.reference_pos] += base.nsegments
             except AttributeError:
-                pass
-            depths[base.reference_pos] += base.nsegments
-            
+                depths[base.pos] += base.nsegments
         df = pandas.DataFrame(depths, index=numpy.arange(length + 1), columns=["depth"])
         yield chromo, length, pandas.rolling_mean(df, window=RES)
 
