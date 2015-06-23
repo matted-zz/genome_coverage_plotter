@@ -2,6 +2,8 @@ FROM ipython/scipystack
 
 MAINTAINER Matt Edwards <matted@mit.edu>
 
+RUN apt-get install -y nano
+
 RUN mkdir /root/genome_coverage_plotter
 WORKDIR /root/genome_coverage_plotter
 RUN git clone https://github.com/matted/genome_coverage_plotter.git .
@@ -15,7 +17,7 @@ RUN /root/miniconda/bin/conda install --yes python=2.7 numpy pysam matplotlib se
 
 ENV PATH /root/miniconda/bin/:$PATH
 
-# RUN python setup.py install --quiet
+RUN python setup.py install --quiet
 
 CMD echo "Please run plot_coverage.py."
 
