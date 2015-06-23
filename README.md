@@ -27,7 +27,7 @@ preinstalled [here](https://registry.hub.docker.com/u/matted/genome-coverage-plo
 Usage:
 ==
 
-Run:
+Run the script on a sorted, indexed bam file:
 
     python plot_coverage.py yeast_test_small.bam
 
