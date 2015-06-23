@@ -21,6 +21,10 @@ def parse(sam):
         yield chromo, length, pandas.rolling_mean(df, window=RES)
 
 if __name__ == "__main__":
+    if len(sys.argv) <= 1:
+        print >>sys.stderr, "usage: python %s input.bam" % sys.argv[0]
+        sys.exit(1)
+
     seaborn.set_style("white")
     sam = pysam.Samfile(sys.argv[1])
 
