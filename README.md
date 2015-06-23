@@ -1,12 +1,10 @@
 genome_coverage_plotter 0.1
 ==============
 
-[![Build Status](https://travis-ci.org/matted/census.svg?branch=master)](https://travis-ci.org/matted/genome_coverage_plotter) [![Coverage Status](https://coveralls.io/repos/matted/genome_coverage_plotter/badge.svg)](https://coveralls.io/r/matted/genome_coverage_plotter)
+[![Build Status](https://travis-ci.org/matted/genome_coverage_plotter.svg?branch=master)](https://travis-ci.org/matted/genome_coverage_plotter) [![Coverage Status](https://coveralls.io/repos/matted/genome_coverage_plotter/badge.svg)](https://coveralls.io/r/matted/genome_coverage_plotter)
 
 Installation:
 ==
-
-*TODO.*
 
 You can get genome_coverage_plotter by pulling it from git:
 
@@ -15,30 +13,46 @@ You can get genome_coverage_plotter by pulling it from git:
 To run genome_coverage_plotter, several Python packages are required.  On a Ubuntu-like
 system, these commands will get the appropriate dependencies:
 
-    sudo apt-get install python python-dev build-essential python-setuptools python-numpy python-scipy python-pylab
-    sudo easy_install pysam
+    sudo apt-get install python python-dev build-essential python-setuptools python-numpy python-scipy python-pylab python-pandas
+    sudo easy_install pysam seaborn
 
-If you don't have root permissions on your system, but you already
-have Python, setuptools, gcc, Scipy, and Numpy, you can get Census
-working by cloning it, moving into the new directory, and running:
-
-    python setup.py install --user
-
-This will install the pysam dependency in your local user directory.
-The Scipy and Numpy dependencies are best installed at the system
-level since they require several non-Python components.
-
-If you want the Census tools on your system path (and want to get the
-pysam dependency automatically), install Census with:
+If you want the genome_coverage_plotter tools on your system path (and want to get the
+dependencies automatically), install it with:
 
     sudo python setup.py install
 
 There is also a Docker image that has genome_coverage_plotter and its dependencies
-preinstalled.  
+preinstalled [here](https://registry.hub.docker.com/u/matted/genome-coverage-plotter/).
 
 Quick usage:
 ==
 
-*TODO.*
+Run:
+
+    python plot_coverage.py yeast_test_small.bam
+
+The output is:
+
+    chromosome normalized_coverage
+    chr10	   1.0000
+    chr11	   1.0264
+    chr12	   1.0556
+    chr13	   1.0000
+    chr14	   1.0000
+    chr15	   0.9444
+    chr16	   1.0000
+    chr1	   0.8889
+    chr2	   1.0000
+    chr3	   1.0556
+    chr4	   1.0083
+    chr5	   1.0000
+    chr6	   1.0472
+    chr7	   1.0000
+    chr8	   1.0889
+    chr9	   0.8889
+
+And it creates an output plot image based on the input filename, like:
 
 ![example](https://raw.githubusercontent.com/matted/genome_coverage_plotter/master/yeast_test.bam.depth.png)
+
+All the parameters and plot options are currently hardcoded.
