@@ -24,7 +24,7 @@ dependencies automatically), install it with:
 There is also a Docker image that has genome_coverage_plotter and its dependencies
 preinstalled [here](https://registry.hub.docker.com/u/matted/genome-coverage-plotter/).
 
-Quick usage:
+Usage:
 ==
 
 Run:
@@ -54,5 +54,7 @@ The output is:
 And it creates an output plot image based on the input filename, like:
 
 ![example](https://raw.githubusercontent.com/matted/genome_coverage_plotter/master/yeast_test.bam.depth.png)
+
+The chromosomes are ordered based on their order in the input file.
 
 All the parameters and plot options are currently hardcoded.
