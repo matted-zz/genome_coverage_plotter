@@ -3,8 +3,12 @@
 # Required configuration for some grid computing environments:
 # import os
 # os.environ["MPLCONFIGDIR"] = "/scratch/tmp/"
-# import matplotlib
-# matplotlib.use("Agg")
+
+import matplotlib
+try:
+    matplotlib.use("Agg")
+except ValueError:
+    pass
 
 import numpy, sys, pylab, os.path, pysam, pandas, seaborn
 
